@@ -1,0 +1,39 @@
+// Zed keymap
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "space t l": "vim::GoToTab",
+      // "space t h": "vim::GoToPreviousTab"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-b": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-t": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+      "bindings": {
+        "ctrl-a": "editor::SelectAll",
+        "ctrl-q": "pane::CloseActiveItem",
+        "ctrl-b": "workspace::ToggleLeftDock",
+        "ctrl-t": "terminal_panel::Toggle",
+        "space s v": "pane::SplitRight",
+        "space s h": "pane::SplitDown"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "space c c": "editor::ToggleComments"
+    }
+  }
+]

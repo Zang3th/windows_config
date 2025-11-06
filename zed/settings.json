@@ -1,0 +1,128 @@
+// Zed settings
+{
+  // ── Editor behavior ────────────────────────────────────────────────
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "format_on_save": "off",
+  "lsp_document_colors": "inlay",
+  "show_whitespaces": "all",
+  "cursor_blink": false,
+
+  // ── Theme & syntax colors ───────────────────────────────────────────
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark"
+  },
+  "theme_overrides": {
+    "Gruvbox Dark": {
+      "syntax": {
+        "comment": {
+          "font_style": "italic"
+        },
+        "comment_doc": {
+          "font_style": "italic"
+        },
+        "operator": {
+          "color": "#fe8019ff" // Orange
+        },
+        "punctuation.bracket": {
+          "color": "#fe8019ff" // Orange
+        },
+        "punctuation.delimiter": {
+          "color": "#fe8019ff" // Orange
+        },
+        "namespace": {
+          "color": "#8ec07cff" // Aqua
+        },
+        "constant": {
+          "color": "#8ec07cff", // Aqua
+          "font_weight": 700
+        },
+        "property": {
+          "color": "#83a598ff" // Blue
+        }
+      }
+    }
+  },
+
+  // ── Fonts & text layout ─────────────────────────────────────────────
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_size": 16.0,
+  "ui_font_weight": 600.0,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 15.0,
+  "buffer_font_weight": 500.0,
+  "buffer_line_height": {
+    "custom": 1.4
+  },
+
+  // ── Layout & UI chrome ──────────────────────────────────────────────
+  "bottom_dock_layout": "contained",
+  "tabs": {
+    "show_close_button": "hidden",
+    "file_icons": true,
+    "git_status": true
+  },
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_sign_in": false,
+    "show_user_picture": false,
+    "show_onboarding_banner": false,
+    "show_project_items": true,
+    "show_branch_name": true,
+    "show_branch_icon": true
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false
+  },
+  "scrollbar": {
+    "diagnostics": "error",
+    "axes": {
+        "horizontal": false
+    }
+  },
+  "preview_tabs": {
+    "enabled": false
+  },
+
+  // ── Panels & buttons visibility ─────────────────────────────────────
+  "project_panel": {
+    "drag_and_drop": false,
+    "scrollbar": {
+      "show": "never"
+    },
+    "starts_open": false,
+    "button": true
+  },
+  "debugger": {
+    "button": false
+  },
+  "search": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+
+  // ── AI & telemetry ──────────────────────────────────────────────────
+  "disable_ai": true,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  }
+}
