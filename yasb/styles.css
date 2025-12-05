@@ -1,0 +1,320 @@
+/* Gruvbox Dark colors */
+:root {
+    --bg:        #282828;
+    --fglight:   #282828;
+    --bg1:       #3c3836;
+    --bg2:       #504945;
+    --bg3:       #665c54;
+    --bg4:       #7c6f64;
+    --fg:        #ebdbb2;
+    --red:       #cc241d;
+    --green:     #98971a;
+    --yellow:    #d79921;
+    --blue:      #458588;
+    --purple:    #b16286;
+    --aqua:      #689d6a;
+    --gray:      #a89984;
+    --brgray:    #928374;
+    --brred:     #fb4934;
+    --brgreen:   #b8bb26;
+    --bryellow:  #fabd2f;
+    --brblue:    #83a598;
+    --brpurple:  #d3869b;
+    --braqua:    #8ec07c;
+    --orange:    #d65d0e;
+    --brorange:  #fe8019;
+}
+
+/* --- Global defaults --- */
+* {
+    font-family: "JetBrains Mono";
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--fg);
+    border-radius: 5px;
+}
+
+/* --- Modules --- */
+
+.widget{
+    background-color: var(--bg1);
+    opacity: 0.80;
+    border-style: solid;
+    border-color: var(--fg);
+    border-width: 2px;
+    padding: 0px 12px;
+    margin: 0px 2px;
+}
+
+/* Icons & Labels */
+
+.volume-widget .icon {
+    font-size: 12px;
+    color: var(--blue);
+}
+
+.microphone-widget .icon {
+    font-size: 12px;
+    color: var(--yellow);
+}
+
+/* Media widget */
+.media-widget {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+}
+
+.media-widget .btn {
+    color: var(--gray);
+    padding: 0 4px;
+    margin: 0;
+    font-family: "JetBrains Mono";
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.media-widget .btn:hover {
+    color: var(--fg);
+}
+
+.media-widget .btn.play {
+    font-size: 24px;
+    color: var(--brgray);
+}
+
+.media-widget .btn.disabled:hover,
+.media-widget .btn.disabled {
+    color: var(--bg4);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+}
+
+/* Media menu in Gruvbox */
+.media-menu {
+    min-width: 420px;
+    max-width: 420px;
+    background-color: var(--bg1);
+    border-radius: 10px;
+    border: 2px solid var(--bg2);
+}
+
+.media-menu .title,
+.media-menu .artist,
+.media-menu .source {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    font-family: "JetBrains Mono";
+    color: var(--fg);
+}
+
+.media-menu .artist {
+    font-size: 13px;
+    color: var(--brgray);
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.media-menu .source {
+    font-size: 11px;
+    color: var(--bg);
+    font-weight: normal;
+    border-radius: 3px;
+    background-color: var(--brblue);
+    padding: 2px 4px;
+}
+
+.media-menu .source.firefox {
+    background-color: var(--red);
+    color: #ffffff;
+}
+
+.media-menu .source.spotify {
+    background-color: var(--green);
+    color: #ffffff;
+}
+
+.media-menu .source.edge,
+.media-menu .source.windows-media {
+    background-color: var(--blue);
+    color: #ffffff;
+}
+
+.media-menu .btn {
+    font-family: "JetBrains Mono";
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px 2px 0px 2px;
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    border-radius: 20px;
+}
+
+.media-menu .btn.prev {
+    margin-left: 10px;
+}
+
+.media-menu .btn:hover {
+    color: var(--fg);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.media-menu .btn.play {
+    background-color: rgba(255, 255, 255, 0.08);
+    font-size: 20px;
+}
+
+.media-menu .btn.disabled:hover,
+.media-menu .btn.disabled {
+    color: var(--bg4);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.media-menu .playback-time {
+    font-size: 13px;
+    font-family: "JetBrains Mono";
+    color: var(--brgray);
+    margin-top: 20px;
+    min-width: 100px;
+}
+
+/* Calendar – Gruvbox-ified */
+.calendar {
+    background-color: var(--bg1);
+    border-radius: 10px;
+    border: 2px solid var(--bg2);
+}
+
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+    background-color: transparent;
+    color: var(--brgray);
+    font-family: "JetBrains Mono";
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.calendar .calendar-table::item:selected {
+    color: var(--bg);
+    background-color: var(--blue);
+    border-radius: 10px;
+}
+
+.calendar .day-label {
+    margin-top: 20px;
+}
+
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label,
+.calendar .week-label,
+.calendar .holiday-label {
+    font-family: "JetBrains Mono";
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 700;
+    min-width: 180px;
+    max-width: 180px;
+}
+
+.calendar .week-label,
+.calendar .holiday-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brgray);
+}
+
+.calendar .holiday-label {
+    font-weight: 700;
+}
+
+.calendar .month-label {
+    font-weight: normal;
+}
+
+.calendar .date-label {
+    font-size: 88px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-top: -20px;
+}
+
+/* Power menu widget – orientiert an #custom-lockscreen "Pill"-Style */
+.power-menu-widget .label {
+    font-size: 18px;
+    color: var(--bg1);
+    background-color: var(--fg);
+    border-radius: 30px;
+    padding: 0px 15px 0px 10px;
+    margin: 0px 0px 0px 2px;
+}
+
+/* Popup bleibt schlicht, aber Gruvbox-farben */
+.power-menu-popup {
+    background-color: transparent;
+}
+
+.power-menu-popup .button {
+    padding: 0;
+    width: 180px;
+    height: 230px;
+    border-radius: 10px;
+    background-color: var(--bg1);
+    border: 4px solid transparent;
+    margin: 0px;
+}
+
+.power-menu-popup .button.hover {
+    background-color: var(--bg2);
+    border: 4px solid var(--bg2);
+}
+
+.power-menu-popup .button .label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--fg);
+}
+
+.power-menu-popup .button .icon {
+    font-size: 64px;
+    padding-top: 32px;
+    color: var(--brgray);
+}
+
+.power-menu-popup .button.hover .label,
+.power-menu-popup .button.hover .icon {
+    color: #ffffff;
+}
+
+.power-menu-popup .button.cancel .icon {
+    padding: 0;
+    margin: 0;
+}
+
+.power-menu-popup .button.cancel .label {
+    color: var(--red);
+    margin: 0;
+}
+
+.power-menu-popup .button.cancel {
+    height: 32px;
+    border-radius: 6px;
+}
+
+.power-menu-popup .button.cancel.hover .label {
+    color: #ffffff;
+}
+
+/* Uptime label */
+.uptime {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--brgray);
+    font-weight: 600;
+}
