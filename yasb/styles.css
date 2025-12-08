@@ -40,34 +40,31 @@
 
 .widget-container {
     background-color: var(--bg2);
-    margin: 4px 4px;
+    border-radius: 6px;
 }
 
 .widget {
     background-color: var(--bg2);
-    margin: 4px 4px;
+    margin: 4px;
+    padding: 2px;
     border-radius: 6px;
 }
 
 .icon {
     background-color: var(--bg2);
     font-size: 14px;
-    margin: 0 0px;
+    margin: 0px;
 }
 
 /* --- Modules --- */
 .glazewm-workspaces .ws-btn {
-    background-color: var(--bg);
-    margin: 0px 4px;
-    color: rgba(0, 0, 0, 0);
-    height: 10px;
-    width: 10px;
+    color: var(--fg);
+    width: 24px;
+    padding: 4px;
 }
 .glazewm-workspaces .ws-btn.active_populated,
 .glazewm-workspaces .ws-btn.active_empty {
     background-color:var(--orange);
-    width: 18px;
-    height: 18px;
 }
 
 .cpu-widget .label {
@@ -98,11 +95,11 @@
     margin: 0px 4px 0px 4px;
 }
 
-.clock-widget .label {
+.active-window-widget .label {
     background-color: var(--bg2);
-    margin: 0px 4px;
+    margin: 0px 2px 0px 0px;
 }
-.calendar {
-    border-radius: 6px;
-    border: 2px solid var(--bg2);
+
+.active-window-widget .icon {
+    margin: 0px 2px 0px 4px;
 }
