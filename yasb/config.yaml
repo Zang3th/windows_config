@@ -5,7 +5,7 @@ update_check: true
 bars:
   primary-bar:
     enabled: true
-    screens: ["*"]
+    screens: ["primary"]
     class_name: "yasb-bar"
     alignment:
       position: "top"
@@ -25,25 +25,68 @@ bars:
       windows_app_bar: true
     dimensions:
       width: "100%"
-      height: 32
-    padding:
-      top: 4
-      left: 4
-      bottom: 0
-      right: 4
+      height: 36
     widgets:
       left:
-      - "media"
       - "glazewm_workspaces"
+      - "cpu"
+      - "gpu"
+      - "memory"
       center:
       - "clock"
       right:
-      - "volume"
-      - "microphone"
+      # - "media"
+      # - "volume"
+      # - "microphone"
       # - "wifi"
-      # - "bluetooth"
-      - "power_menu"
 widgets:
+  glazewm_workspaces:
+    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
+    options:
+      offline_label: "GlazeWM Offline"
+      hide_empty_workspaces: false
+      hide_if_offline: false
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "<span>\uf4bc</span> {info[percent][total]}%"
+      update_interval: 4000
+      callbacks:
+        on_left: "exec cmd /c Taskmgr"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
+  gpu:
+    type: "yasb.gpu.GpuWidget"
+    options:
+      label: "<span>\uf26c</span> {info[utilization]}%"
+      label_alt: "<span>\uf26c</span> {info[temp]}°C | {info[mem_used]} / {info[mem_total]}"
+      update_interval: 4000
+      callbacks:
+        on_left: "toggle_label"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
+  memory:
+      type: "yasb.memory.MemoryWidget"
+      options:
+        label: "<span>\uefc5</span> {virtual_mem_percent}%"
+        label_alt: "<span>\uefc5</span> {virtual_mem_used} / {virtual_mem_total}"
+        update_interval: 8000
+        callbacks:
+          on_left: "toggle_label"
+          on_middle: "do_nothing"
+          on_right: "do_nothing"
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+      label: "{%a | %d. %b | %H:%M}"
+      timezones: []
+      calendar:
+        blur: false
+        round_corners: false
+        alignment: "center"
+        direction: "down"
+      callbacks:
+        on_left: "toggle_calendar"
   media:
     type: "yasb.media.MediaWidget"
     options:
@@ -92,41 +135,6 @@ widgets:
       callbacks:
         on_left: "toggle_media_menu"
         on_middle: "do_nothing"
-        on_right: "toggle_label"
-  glazewm_workspaces:
-    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
-    options:
-      offline_label: "GlazeWM Offline"
-      hide_empty_workspaces: true
-      hide_if_offline: false
-      enable_scroll_switching: true
-      btn_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [ 1, 1 ]
-      app_icons:
-        enabled_populated: false
-        enabled_active: false
-        size: 16
-        max_icons: 0
-        hide_label: false
-        hide_duplicates: false
-        hide_floating: false
-      animation: false
-  clock:
-    type: "yasb.clock.ClockWidget"
-    options:
-      label: "{%a, %d %b %H:%M}"
-      label_alt: "{%A, %d %B %Y %H:%M}"
-      timezones: []
-      calendar:
-        blur: false
-        round_corners: false
-        alignment: "center"
-        direction: "down"
-      callbacks:
-        on_left: "toggle_calendar"
         on_right: "toggle_label"
   volume:
     type: "yasb.volume.VolumeWidget"

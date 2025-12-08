@@ -31,14 +31,11 @@ window_effects:
     corner_style:
       enabled: false
       style: 'square'
-    transparency:
-      enabled: false
-      opacity: '95%'
 
   other_windows:
     border:
       enabled: true
-      color: '#a1a1a1'
+      color: '#ebdbb2'
     hide_title_bar:
       enabled: false
     corner_style:
