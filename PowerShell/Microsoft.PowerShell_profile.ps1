@@ -11,3 +11,9 @@ $env:Path = "$PY_HOME;$PY_HOME\Scripts;" + ($paths -join ';')
 
 function python { & "$PY_HOME\python.exe" @args }
 function pip    { & "$PY_HOME\python.exe" -m pip @args }
+
+# Visual Studio Developer PowerShell
+$vsDevShell = "C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\Common7\Tools\Launch-VsDevShell.ps1"
+if (Test-Path $vsDevShell) {
+    & $vsDevShell -Arch amd64
+}
