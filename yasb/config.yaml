@@ -35,9 +35,9 @@ bars:
       center:
       - "active_window"
       right:
-      # - "media"
-      # - "weather"
-      # - "user"
+      - "media"
+      - "weather"
+      - "user_host"
 widgets:
   glazewm_workspaces:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
@@ -88,3 +88,84 @@ widgets:
       rewrite:
         - pattern: "^(.+?)\\.exe$"
           replacement: "\\1"
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "{title}"
+      max_field_size:
+        label: 20
+      show_thumbnail: false
+      controls_only: false
+      controls_left: true
+      icons:
+        prev_track: "\uf048"
+        next_track: "\uf051"
+        play: "\uf04b"
+        pause: "\uf04c"
+      scrolling_label:
+        enabled: true
+        update_interval_ms: 30
+        style: "left"
+        separator: " | "
+        label_padding: 10
+      media_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 60
+        thumbnail_corner_radius: 8
+        thumbnail_size: 120
+        max_title_size: 27
+        max_artist_size: 60
+        show_source: true
+      media_menu_icons:
+        prev_track: "\uf048"
+        next_track: "\uf051"
+        play: "\uf04b"
+        pause: "\uf04c"
+      callbacks:
+        on_left: "toggle_play_pause"
+        on_middle: "do_nothing"
+        on_right: "toggle_media_menu"
+  weather:
+    type: "yasb.weather.WeatherWidget"
+    options:
+      label: "<span>{icon}</span> {temp} | {location}"
+      label_alt: "Min. {min_temp} | Max. {max_temp} | Humidity {humidity}"
+      api_key: 'a82399e9a0fb4f8ea1d73504250912' # free api-key from weatherapi.com
+      update_interval: 600
+      hide_decimal: true
+      tooltip: false
+      location: 'Germany Krefeld 47807'
+      callbacks:
+        on_left: "toggle_label"
+      icons:
+        sunnyDay: "\udb81\udd99"
+        clearNight: "\udb81\udd94"
+        cloudyDay: "\uebaa"
+        cloudyNight: "\uebaa"
+        rainyDay: "\udb81\udd96"
+        rainyNight: "\udb81\udd96"
+        snowyIcyDay: "\udb81\udd92"
+        snowyIcyNight: "\udb81\udd92"
+        blizzardDay: "\udb81\udd93"
+        default: "\uebaa"
+  user_host:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "{data}"
+      label_alt: "{data}"
+      class_name: "user-host-widget"
+      exec_options:
+        run_cmd: "powershell -Command \"$env:USERNAME@$env:COMPUTERNAME\""
+        run_interval: 300000
+        return_format: "string"
+        hide_empty: false
+      callbacks:
+        on_left: "do_nothing"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"

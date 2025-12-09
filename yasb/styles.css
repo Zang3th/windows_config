@@ -99,7 +99,77 @@
     background-color: var(--bg2);
     margin: 0px 2px 0px 0px;
 }
-
 .active-window-widget .icon {
     margin: 0px 2px 0px 4px;
+}
+
+.media-widget .label {
+    color: var(--fg);
+    background-color: var(--bg2);
+    padding-left: 6px;
+    padding-right: 6px;
+    min-width: 40px;
+    max-width: 100px;
+}
+.media-widget .btn {
+    color: var(--fg);
+    background-color: var(--bg2);
+    padding-left: 2px;
+    margin: 2px 4px 0px 4px;
+    font-size: 14px;
+}
+.media-widget .btn:hover {
+    color: var(--orange);
+}
+
+.media-menu {
+    min-width: 420px;
+    max-width: 420px;
+}
+.media-menu .title{
+    margin-left: 10px;
+    font-size: 16px;
+}
+.media-menu .artist {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--fg);
+    margin-top: 0px;
+    margin-bottom: 8px;
+    margin-left: 12px;
+}
+.media-menu .btn {
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 40px;
+    max-width: 40px;
+}
+.media-menu .btn:hover {
+    color: var(--orange);
+}
+.media-menu .playback-time {
+    font-size: 12px;
+    color: var(--fg);
+    margin-top: 20px;
+    min-width: 100px;
+}
+.media-menu .progress-slider {
+    margin-top: 10px;
+	color: var(--fg);
+}
+.media-menu .progress-slider::groove {
+    height: 2px;
+}
+
+.weather-widget .label {
+    background-color: var(--bg2);
+    margin: 0px 4px;
+}
+.weather-widget .icon {
+    margin: 0px 4px 0px 4px;
+}
+
+.user-host-widget .label {
+    background-color: var(--bg2);
+    margin: 0px 4px;
 }
