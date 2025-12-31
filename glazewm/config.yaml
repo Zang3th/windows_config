@@ -111,6 +111,9 @@ window_rules:
       - window_process: { equals: 'POWERPNT' }
         window_class: { not_regex: 'PPTFrameClass' }
 
+      # Dev exceptions
+      - window_process: { equals: "Sandbox" }
+
 keybindings:
   # Shift focus in a given direction.
   - commands: ['focus --direction left']
