@@ -43,8 +43,8 @@ widgets:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
       offline_label: "GlazeWM Offline"
-      hide_empty_workspaces: false
       hide_if_offline: false
+      monitor_exclusive: false
   cpu:
     type: "yasb.cpu.CpuWidget"
     options:

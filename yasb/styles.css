@@ -62,9 +62,23 @@
     width: 24px;
     padding: 4px;
 }
+
 .glazewm-workspaces .ws-btn.active_populated,
 .glazewm-workspaces .ws-btn.active_empty {
-    background-color:var(--orange);
+    background-color: var(--orange);
+    width: 30px;
+}
+
+.glazewm-workspaces .ws-btn.empty {
+    width: 0;
+    min-width: 0;
+    max-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    color: transparent;
+    background-color: transparent;
+    font-size: 0;
 }
 
 .cpu-widget .label {
