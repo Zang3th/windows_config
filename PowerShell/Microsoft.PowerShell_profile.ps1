@@ -6,11 +6,21 @@ function bsh  { & $MSYS_BASH -c @args }
 
 # Fuck python paths
 $PY_HOME = "$env:LOCALAPPDATA\Programs\Python\Python313"
-$paths = ($env:Path -split ';' | ForEach-Object { $_.Trim() }) | Where-Object { $_ -and $_ -ne "$PY_HOME" -and $_ -ne "$PY_HOME\Scripts" }
+$paths = ($env:Path -split ';' | ForEach-Object { $_.Trim() }) | Where-Object {
+    $_ -and
+    $_ -ne "$PY_HOME" -and
+    $_ -ne "$PY_HOME\Scripts"
+}
 $env:Path = "$PY_HOME;$PY_HOME\Scripts;" + ($paths -join ';')
 
 function python { & "$PY_HOME\python.exe" @args }
 function pip    { & "$PY_HOME\python.exe" -m pip @args }
+
+# WinGet command aliases
+$wingetLinks = "$env:LOCALAPPDATA\Microsoft\WinGet\Links"
+if ((Test-Path $wingetLinks) -and (($env:Path -split ';') -notcontains $wingetLinks)) {
+    $env:Path += ";$wingetLinks"
+}
 
 # Visual Studio Developer PowerShell
 $vsDevShell = "C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\Common7\Tools\Launch-VsDevShell.ps1"
