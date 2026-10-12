@@ -40,7 +40,6 @@
             "{{ if gt .Behind 0 }}#B388FF{{ end }}"
           ],
           "foreground": "#282828",
-          "leading_diamond": "\ue0b6",
           "powerline_symbol": "\ue0b0",
           "properties": {
             "branch_template": "{{ trunc 25 .Branch }}",
@@ -75,6 +74,9 @@
           "type": "status",
           "style": "plain",
           "foreground": "#ebdbb2",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#fb4934{{ end }}"
+          ],
           "properties": {
             "always_enabled": true
           },

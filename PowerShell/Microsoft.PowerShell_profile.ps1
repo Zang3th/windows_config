@@ -1,4 +1,10 @@
-oh-my-posh init pwsh --config 'C:/Users/Zangeth/.config/Posh/config.json' | Invoke-Expression
+$CONFIG_HOME = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME\.config" }
+$VS_ROOT     = "C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools"
+
+oh-my-posh init pwsh --config "$CONFIG_HOME\posh\config.json" | Invoke-Expression
+
+$env:EDITOR = 'nvim'
+$env:VISUAL = 'nvim'
 
 $MSYS_BASH = "$env:USERPROFILE\scoop\apps\msys2\current\usr\bin\bash.exe"
 function bash { & $MSYS_BASH -li @args }
@@ -16,14 +22,34 @@ $env:Path = "$PY_HOME;$PY_HOME\Scripts;" + ($paths -join ';')
 function python { & "$PY_HOME\python.exe" @args }
 function pip    { & "$PY_HOME\python.exe" -m pip @args }
 
-# WinGet command aliases
-$wingetLinks = "$env:LOCALAPPDATA\Microsoft\WinGet\Links"
-if ((Test-Path $wingetLinks) -and (($env:Path -split ';') -notcontains $wingetLinks)) {
-    $env:Path += ";$wingetLinks"
+# Prefer the CMake bundled with Visual Studio
+$vsCMake = "$VS_ROOT\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin"
+if (Test-Path $vsCMake) {
+    $env:Path = "$vsCMake;$env:Path"
 }
 
-# Visual Studio Developer PowerShell
-$vsDevShell = "C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools\Common7\Tools\Launch-VsDevShell.ps1"
-if (Test-Path $vsDevShell) {
-    & $vsDevShell -Arch amd64
+# Visual Studio Developer PowerShell - loaded on demand
+function vsdev {
+    if ($env:VSCMD_VER) { Write-Host "VS dev environment already loaded ($env:VSCMD_VER)"; return }
+    & "$VS_ROOT\Common7\Tools\Launch-VsDevShell.ps1" -Arch amd64 -HostArch amd64 -SkipAutomaticLocation
+    # The dev shell appends its tools; keep VS CMake in front
+    $env:Path = "$vsCMake;$env:Path"
+}
+
+# Interactive line editing - skipped in non-interactive hosts (scripts, tools)
+if ($Host.Name -eq 'ConsoleHost' -and -not [Console]::IsOutputRedirected) {
+    Set-PSReadLineOption -EditMode Vi
+    Set-PSReadLineOption -ViModeIndicator Cursor
+    Set-PSReadLineOption -HistoryNoDuplicates
+    Set-PSReadLineOption -PredictionSource History -PredictionViewStyle InlineView
+    Set-PSReadLineKeyHandler -Key Tab       -Function MenuComplete
+    Set-PSReadLineKeyHandler -Key UpArrow   -Function HistorySearchBackward
+    Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+    Set-PSReadLineKeyHandler -Key Ctrl+f    -Function AcceptSuggestion -ViMode Insert
+
+    # fzf: Ctrl+r history search, Ctrl+t file picker
+    if ((Get-Command fzf -ErrorAction SilentlyContinue) -and (Get-Module -ListAvailable PSFzf)) {
+        Import-Module PSFzf
+        Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+    }
 }

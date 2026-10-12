@@ -81,32 +81,20 @@
     font-size: 0;
 }
 
-.cpu-widget .label {
+/* Simple info widgets share one look */
+.cpu-widget .label,
+.gpu-widget .label,
+.memory-widget .label,
+.weather-widget .label,
+.user-host-widget .label {
     background-color: var(--bg2);
     margin: 0px 4px;
 }
-.cpu-widget .icon {
-    background-color: var(--bg2);
-    font-size: 14px;
-    margin: 0px 4px 0px 4px;
-}
-.gpu-widget .label {
-    background-color: var(--bg2);
+.cpu-widget .icon,
+.gpu-widget .icon,
+.memory-widget .icon,
+.weather-widget .icon {
     margin: 0px 4px;
-}
-.gpu-widget .icon {
-    background-color: var(--bg2);
-    font-size: 14px;
-    margin: 0px 4px 0px 4px;
-}
-.memory-widget .label {
-    background-color: var(--bg2);
-    margin: 0px 4px;
-}
-.memory-widget .icon {
-    background-color: var(--bg2);
-    font-size: 14px;
-    margin: 0px 4px 0px 4px;
 }
 
 .active-window-widget .label {
@@ -169,21 +157,8 @@
 }
 .media-menu .progress-slider {
     margin-top: 10px;
-	color: var(--fg);
+    color: var(--fg);
 }
 .media-menu .progress-slider::groove {
     height: 2px;
-}
-
-.weather-widget .label {
-    background-color: var(--bg2);
-    margin: 0px 4px;
-}
-.weather-widget .icon {
-    margin: 0px 4px 0px 4px;
-}
-
-.user-host-widget .label {
-    background-color: var(--bg2);
-    margin: 0px 4px;
 }

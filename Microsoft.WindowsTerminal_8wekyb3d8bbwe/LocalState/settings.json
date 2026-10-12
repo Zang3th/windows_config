@@ -5,7 +5,7 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "keybindings": 
+    "keybindings":
     [
         {
             "id": "Terminal.FindText",
@@ -17,33 +17,43 @@
         }
     ],
     "language": "en-US",
-    "launchMode": "maximized",
-    "newTabMenu": 
+    "launchMode": "default",
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
+    "profiles":
     {
-        "defaults": {},
-        "list": 
+        "defaults":
+        {
+            "colorScheme": "Gruvbox_Dark",
+            "cursorShape": "bar",
+            "font":
+            {
+                "face": "JetBrainsMono Nerd Font",
+                "size": 12
+            },
+            "opacity": 90,
+            "scrollbarState": "hidden",
+            "useAcrylic": true
+        },
+        "list":
         [
             {
-                "colorScheme": "Gruvbox_Dark",
-                "cursorShape": "bar",
-                "experimental.retroTerminalEffect": false,
-                "font": 
-                {
-                    "face": "JetBrainsMono Nerd Font"
-                },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell",
-                "opacity": 90,
-                "scrollbarState": "hidden",
-                "source": "Windows.Terminal.PowershellCore",
-                "useAcrylic": true
+                "source": "Windows.Terminal.PowershellCore"
+            },
+            {
+                "commandline": "%USERPROFILE%\\scoop\\apps\\msys2\\current\\msys2_shell.cmd -defterm -here -no-start -msys",
+                "guid": "{6d76eb45-52d6-49ba-9f65-7aea94f38e5e}",
+                "hidden": false,
+                "icon": "%USERPROFILE%\\scoop\\apps\\msys2\\current\\msys2.ico",
+                "name": "MSYS2",
+                "startingDirectory": "%USERPROFILE%"
             },
             {
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
@@ -52,56 +62,60 @@
                 "source": "Git"
             },
             {
-                "colorScheme": "Tango Dark",
-                "font": 
-                {
-                    "builtinGlyphs": true,
-                    "colorGlyphs": true,
-                    "face": "JetBrainsMono Nerd Font",
-                    "size": 12
-                },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
             },
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Command Prompt"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
+                "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{aa1e0eca-7472-50c2-8b98-7aed42d5241d}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{60f7a8b2-9158-5eee-95ae-4b9e26aef13c}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 18",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
     "rendering.graphicsAPI": "direct3d11",
-    "schemes": 
+    "schemes":
     [
         {
-            "background": "#282828",
-            "black": "#000000",
-            "blue": "#458588",
-            "brightBlack": "#545454",
-            "brightBlue": "#83A598",
-            "brightCyan": "#8EC07C",
-            "brightGreen": "#B8BB26",
-            "brightPurple": "#D3869B",
-            "brightRed": "#FB4934",
-            "brightWhite": "#F2F2F2",
-            "brightYellow": "#FABD2F",
-            "cursorColor": "#EBDBB2",
-            "cyan": "#689D6A",
-            "foreground": "#EBDBB2",
-            "green": "#98971A",
             "name": "Gruvbox_Dark",
-            "purple": "#B16286",
+            "background": "#282828",
+            "foreground": "#EBDBB2",
+            "cursorColor": "#EBDBB2",
+            "selectionBackground": "#665C54",
+            "black": "#282828",
             "red": "#CC241D",
-            "selectionBackground": "#EBDBB2",
-            "white": "#CCCCCC",
-            "yellow": "#D79921"
+            "green": "#98971A",
+            "yellow": "#D79921",
+            "blue": "#458588",
+            "purple": "#B16286",
+            "cyan": "#689D6A",
+            "white": "#A89984",
+            "brightBlack": "#928374",
+            "brightRed": "#FB4934",
+            "brightGreen": "#B8BB26",
+            "brightYellow": "#FABD2F",
+            "brightBlue": "#83A598",
+            "brightPurple": "#D3869B",
+            "brightCyan": "#8EC07C",
+            "brightWhite": "#EBDBB2"
         }
     ],
     "themes": []

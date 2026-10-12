@@ -8,7 +8,6 @@
 general:
   startup_commands: ['shell-exec yasb']
   focus_follows_cursor: true
-  cursor_follows_focus: true
   toggle_workspace_on_refocus: false
   show_floating_on_top: true
   cursor_jump:

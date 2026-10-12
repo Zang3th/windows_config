@@ -2,3 +2,4 @@ nvim/
 scoop/
 *.log
 lazygit/
+.env
