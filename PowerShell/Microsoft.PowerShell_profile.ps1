@@ -1,5 +1,7 @@
 $CONFIG_HOME = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME\.config" }
 $VS_ROOT     = "C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools"
+$LLVM_BIN    = "C:\Program Files\LLVM\bin"
+$WINGET_LINKS = "$env:LOCALAPPDATA\Microsoft\WinGet\Links"
 
 oh-my-posh init pwsh --config "$CONFIG_HOME\posh\config.json" | Invoke-Expression
 
@@ -22,21 +24,18 @@ $env:Path = "$PY_HOME;$PY_HOME\Scripts;" + ($paths -join ';')
 function python { & "$PY_HOME\python.exe" @args }
 function pip    { & "$PY_HOME\python.exe" -m pip @args }
 
-# Prefer the CMake bundled with Visual Studio
-$vsCMake = "$VS_ROOT\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin"
-if (Test-Path $vsCMake) {
-    $env:Path = "$vsCMake;$env:Path"
-}
+# Prefer the standalone CMake
+$env:Path = "$WINGET_LINKS;$env:Path"
 
-# Visual Studio Developer PowerShell - loaded on demand
+# Visual Studio Developer PowerShell, loaded on demand
 function vsdev {
     if ($env:VSCMD_VER) { Write-Host "VS dev environment already loaded ($env:VSCMD_VER)"; return }
     & "$VS_ROOT\Common7\Tools\Launch-VsDevShell.ps1" -Arch amd64 -HostArch amd64 -SkipAutomaticLocation
-    # The dev shell appends its tools; keep VS CMake in front
-    $env:Path = "$vsCMake;$env:Path"
+    # The dev shell prepends its own CMake and LLVM; keep the standalone ones in front
+    $env:Path = "$WINGET_LINKS;$LLVM_BIN;$env:Path"
 }
 
-# Interactive line editing - skipped in non-interactive hosts (scripts, tools)
+# Interactive line editing, skipped in non-interactive hosts (scripts, tools)
 if ($Host.Name -eq 'ConsoleHost' -and -not [Console]::IsOutputRedirected) {
     Set-PSReadLineOption -EditMode Vi
     Set-PSReadLineOption -ViModeIndicator Cursor
