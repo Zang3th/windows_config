@@ -50,5 +50,7 @@ if ($Host.Name -eq 'ConsoleHost' -and -not [Console]::IsOutputRedirected) {
     if ((Get-Command fzf -ErrorAction SilentlyContinue) -and (Get-Module -ListAvailable PSFzf)) {
         Import-Module PSFzf
         Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+        # Tab/Shift+Tab to move through the history list
+        $env:FZF_CTRL_R_OPTS = '--bind=tab:up,btab:down'
     }
 }
