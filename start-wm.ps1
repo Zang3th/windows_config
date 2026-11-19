@@ -40,6 +40,11 @@ if (-not $env:KOMOREBI_CONFIG_HOME) {
         "$HOME\.config\komorebi"
 }
 
+# Everything started here inherits this environment. When the script runs from a terminal,
+# drop that terminal's oh-my-posh session, or new shells inherit a foreign one.
+Get-ChildItem env: | Where-Object Name -like 'POSH_*' |
+    ForEach-Object { Remove-Item "env:$($_.Name)" }
+
 # Prefer the nightly build (komorebi/install-nightly.ps1) over the Scoop one.
 # whkd inherits this PATH, so every `komorebic` in whkdrc talks to the same
 # version as the running komorebi.
