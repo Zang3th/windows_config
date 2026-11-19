@@ -27,6 +27,10 @@ function pip    { & "$PY_HOME\python.exe" -m pip @args }
 # Prefer the standalone CMake
 $env:Path = "$WINGET_LINKS;$env:Path"
 
+# Prefer the komorebi nightly
+$KOMOREBI_NIGHTLY = "$env:LOCALAPPDATA\Programs\komorebi-nightly"
+if (Test-Path "$KOMOREBI_NIGHTLY\komorebic.exe") { $env:Path = "$KOMOREBI_NIGHTLY;$env:Path" }
+
 # Visual Studio Developer PowerShell, loaded on demand
 function vsdev {
     if ($env:VSCMD_VER) { Write-Host "VS dev environment already loaded ($env:VSCMD_VER)"; return }

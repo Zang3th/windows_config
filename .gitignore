@@ -3,3 +3,4 @@ scoop/
 *.log
 lazygit/
 .env
+komorebi/applications.json

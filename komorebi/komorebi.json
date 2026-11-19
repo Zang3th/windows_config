@@ -1,0 +1,112 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
+  "app_specific_configuration_path": "$Env:KOMOREBI_CONFIG_HOME/applications.json",
+
+  "window_hiding_behaviour": "Cloak",
+  "window_container_behaviour": "Create",
+  "cross_monitor_move_behaviour": "Insert",
+  "cross_boundary_behaviour": "Monitor",
+  "unmanaged_window_operation_behaviour": "Op",
+  "mouse_follows_focus": true,
+  "toggle_float_placement": "Center",
+  "float_rule_placement": "Center",
+  "resize_delta": 50,
+
+  "default_workspace_padding": 4,
+  "default_container_padding": 1,
+
+  "border": true,
+  "border_implementation": "Komorebi",
+  "border_width": 4,
+  "border_offset": -1,
+  "border_style": "Rounded",
+  "border_colours": {
+    "single": "#d65d0e",
+    "stack": "#d79921",
+    "monocle": "#b16286",
+    "floating": "#458588",
+    "unfocused": "#ebdbb2"
+  },
+
+  "transparency": false,
+
+  "animation": {
+    "enabled": {
+      "movement": true,
+      "workspace": true
+    },
+    "ghost_movement": true,
+    "duration": {
+      "movement": 250,
+      "workspace": 300
+    },
+    "style": {
+      "movement": "EaseOutExpo",
+      "workspace": "EaseOutExpo"
+    },
+    "fps": 120
+  },
+
+  "display_index_preferences": {
+    "0": "908NTVS27007",
+    "1": "MSI4DC7-5&19ed7610&0&UID4355",
+    "2": "HCHL7HA001153"
+  },
+
+  "monitors": [
+    {
+      "workspaces": [
+        { "name": "1", "layout": "BSP" },
+        { "name": "2", "layout": "BSP" },
+        { "name": "3", "layout": "BSP" }
+      ]
+    },
+    {
+      "workspaces": [
+        { "name": "4", "layout": "BSP" },
+        { "name": "5", "layout": "BSP" },
+        { "name": "6", "layout": "BSP" }
+      ]
+    },
+    {
+      "workspaces": [
+        { "name": "7", "layout": "HorizontalStack" },
+        { "name": "8", "layout": "HorizontalStack" },
+        { "name": "9", "layout": "HorizontalStack" }
+      ]
+    }
+  ],
+
+  "ignore_rules": [
+    { "kind": "Exe", "id": "yasb.exe", "matching_strategy": "Equals" },
+    { "kind": "Exe", "id": "Sandbox.exe", "matching_strategy": "Equals" },
+    [
+      { "kind": "Title", "id": "[Pp]icture.in.[Pp]icture", "matching_strategy": "Regex" },
+      { "kind": "Class", "id": "Chrome_WidgetWin_1|MozillaDialogClass", "matching_strategy": "Regex" }
+    ],
+    [
+      { "kind": "Exe", "id": "PowerToys", "matching_strategy": "StartsWith" },
+      { "kind": "Class", "id": "HwndWrapper\\[PowerToys\\.PowerAccent.*?\\]", "matching_strategy": "Regex" }
+    ],
+    [
+      { "kind": "Exe", "id": "PowerToys", "matching_strategy": "StartsWith" },
+      { "kind": "Title", "id": ".*? - Peek", "matching_strategy": "Regex" }
+    ],
+    [
+      { "kind": "Exe", "id": "Lively.exe", "matching_strategy": "Equals" },
+      { "kind": "Class", "id": "HwndWrapper", "matching_strategy": "StartsWith" }
+    ],
+    [
+      { "kind": "Exe", "id": "EXCEL.EXE", "matching_strategy": "Equals" },
+      { "kind": "Class", "id": "XLMAIN", "matching_strategy": "DoesNotEqual" }
+    ],
+    [
+      { "kind": "Exe", "id": "WINWORD.EXE", "matching_strategy": "Equals" },
+      { "kind": "Class", "id": "OpusApp", "matching_strategy": "DoesNotEqual" }
+    ],
+    [
+      { "kind": "Exe", "id": "POWERPNT.EXE", "matching_strategy": "Equals" },
+      { "kind": "Class", "id": "PPTFrameClass", "matching_strategy": "DoesNotEqual" }
+    ]
+  ]
+}

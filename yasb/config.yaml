@@ -27,7 +27,7 @@ bars:
       height: 36
     widgets:
       left:
-      - "glazewm_workspaces"
+      - "komorebi_workspaces"
       - "cpu"
       - "gpu"
       - "memory"
@@ -58,15 +58,19 @@ bars:
     widgets:
       left: []
       center:
-      - "glazewm_workspaces"
+      - "komorebi_workspaces"
       right: []
 widgets:
-  glazewm_workspaces:
-    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
+  komorebi_workspaces:
+    type: "komorebi.workspaces.WorkspaceWidget"
     options:
-      offline_label: "GlazeWM Offline"
+      label_offline: "komorebi offline"
+      label_workspace_btn: "{name}"
+      label_workspace_active_btn: "{name}"
+      label_workspace_populated_btn: "{name}"
       hide_if_offline: false
-      monitor_exclusive: true
+      hide_empty_workspaces: false  # empty buttons are hidden via CSS so the active one stays visible
+      enable_scroll_switching: true
   cpu:
     type: "yasb.cpu.CpuWidget"
     options:
