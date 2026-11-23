@@ -54,11 +54,12 @@ if (Test-Path "$nightly\komorebi.exe") {
 }
 
 # --- Stop whatever is running ---
-if (Get-Process yasb -ErrorAction SilentlyContinue) {
-    yasbc stop | Out-Null
-}
+# yasb goes last: its power button runs this script as a child process.
 if (Get-Process komorebi -ErrorAction SilentlyContinue) {
     komorebic stop --whkd | Out-Null
+}
+if (Get-Process yasb -ErrorAction SilentlyContinue) {
+    yasbc stop | Out-Null
 }
 # Leftovers if the graceful stops failed
 Get-Process yasb, komorebi, whkd -ErrorAction SilentlyContinue | Stop-Process -Force

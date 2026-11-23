@@ -37,6 +37,7 @@ bars:
       - "media"
       - "weather"
       - "user_host"
+      - "power_off"
   secondary-bar:
     enabled: true
     screens: ["27E2G5", "27GL850"]
@@ -191,5 +192,16 @@ widgets:
         hide_empty: false
       callbacks:
         on_left: "do_nothing"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
+  power_off:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "\uf011"
+      label_alt: "\uf011"
+      class_name: "power-off-widget"
+      callbacks:
+        # Stops komorebi, whkd and yasb (yasb last, it is this button's parent)
+        on_left: 'exec conhost.exe --headless pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:/Users/Zangeth/.config/start-wm.ps1 -Stop'
         on_middle: "do_nothing"
         on_right: "do_nothing"
