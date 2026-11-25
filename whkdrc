@@ -1,111 +1,111 @@
 .shell pwsh
 
-# Disables all other hotkeys until alt+shift+p is pressed again and
+# Disables all other hotkeys until lalt+shift+p is pressed again and
 # pauses komorebi at the same time.
-.pause alt + shift + p
+.pause lalt + shift + p
 .pause_hook komorebic toggle-pause
 
 # ============================================
 # Focus / move
 # ============================================
 
-alt + h                 : komorebic focus left
-alt + l                 : komorebic focus right
-alt + k                 : komorebic focus up
-alt + j                 : komorebic focus down
-alt + left              : komorebic focus left
-alt + right             : komorebic focus right
-alt + up                : komorebic focus up
-alt + down              : komorebic focus down
+lalt + h                : komorebic focus left
+lalt + l                : komorebic focus right
+lalt + k                : komorebic focus up
+lalt + j                : komorebic focus down
+lalt + left             : komorebic focus left
+lalt + right            : komorebic focus right
+lalt + up               : komorebic focus up
+lalt + down             : komorebic focus down
 
-alt + shift + h         : komorebic move left
-alt + shift + l         : komorebic move right
-alt + shift + k         : komorebic move up
-alt + shift + j         : komorebic move down
-alt + shift + left      : komorebic move left
-alt + shift + right     : komorebic move right
-alt + shift + up        : komorebic move up
-alt + shift + down      : komorebic move down
+lalt + shift + h        : komorebic move left
+lalt + shift + l        : komorebic move right
+lalt + shift + k        : komorebic move up
+lalt + shift + j        : komorebic move down
+lalt + shift + left     : komorebic move left
+lalt + shift + right    : komorebic move right
+lalt + shift + up       : komorebic move up
+lalt + shift + down     : komorebic move down
 
 # Swap the focused window into the main (largest) slot
-alt + shift + return    : komorebic promote
+lalt + shift + return   : komorebic promote
 
 # ============================================
 # Window state
 # ============================================
 
-alt + f                 : komorebic toggle-float
-alt + shift + f         : komorebic toggle-monocle
-alt + m                 : komorebic minimize
-alt + q                 : komorebic close
+lalt + f                : komorebic toggle-float
+lalt + shift + f        : komorebic toggle-monocle
+lalt + m                : komorebic minimize
+lalt + q                : komorebic close
 
 # ============================================
 # Resize
 # ============================================
 
-alt + oem_plus          : komorebic resize-axis horizontal increase
-alt + oem_minus         : komorebic resize-axis horizontal decrease
-alt + shift + oem_plus  : komorebic resize-axis vertical increase
-alt + shift + oem_minus : komorebic resize-axis vertical decrease
+lalt + oem_plus         : komorebic resize-axis horizontal increase
+lalt + oem_minus        : komorebic resize-axis horizontal decrease
+lalt + shift + oem_plus : komorebic resize-axis vertical increase
+lalt + shift + oem_minus : komorebic resize-axis vertical decrease
 
 # ============================================
 # Layout
 # ============================================
 
-alt + x                 : komorebic flip-layout horizontal
-alt + y                 : komorebic flip-layout vertical
-alt + shift + space     : komorebic cycle-layout next
+lalt + x                : komorebic flip-layout horizontal
+lalt + y                : komorebic flip-layout vertical
+lalt + shift + space    : komorebic cycle-layout next
 
 # ============================================
 # Window manager
 # ============================================
 
 # Stop komorebi and whkd
-alt + shift + q         : komorebic stop --whkd
+lalt + shift + q        : komorebic stop --whkd
 
 # Reload komorebi.json and restart whkd so whkdrc changes apply too
-alt + shift + r         : komorebic reload-configuration; taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden
+lalt + shift + r        : komorebic reload-configuration; taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden
 
 # Re-apply the layout
-alt + shift + w         : komorebic retile
+lalt + shift + w        : komorebic retile
 
 # Searchable overview of all bindings in this file
-alt + i                 : komorebic toggle-shortcuts
+lalt + i                : komorebic toggle-shortcuts
 
 # ============================================
 # Applications
 # ============================================
 
-alt + t                 : Start-Process 'shell:AppsFolder\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App'
-alt + n                 : Start-Process neovide
-alt + e                 : Start-Process explorer
-alt + b                 : Start-Process brave
+lalt + t                : Start-Process 'shell:AppsFolder\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App'
+lalt + n                : Start-Process neovide
+lalt + e                : Start-Process explorer
+lalt + b                : Start-Process brave
 
 # ============================================
 # Workspaces
 # ============================================
 
 # Next/previous workspace on the focused monitor
-alt + w + l             : komorebic cycle-workspace next
-alt + w + h             : komorebic cycle-workspace previous
+lalt + w + l            : komorebic cycle-workspace next
+lalt + w + h            : komorebic cycle-workspace previous
 
-alt + 1                 : komorebic focus-named-workspace 1
-alt + 2                 : komorebic focus-named-workspace 2
-alt + 3                 : komorebic focus-named-workspace 3
-alt + 4                 : komorebic focus-named-workspace 4
-alt + 5                 : komorebic focus-named-workspace 5
-alt + 6                 : komorebic focus-named-workspace 6
-alt + 7                 : komorebic focus-named-workspace 7
-alt + 8                 : komorebic focus-named-workspace 8
-alt + 9                 : komorebic focus-named-workspace 9
+lalt + 1                : komorebic focus-named-workspace 1
+lalt + 2                : komorebic focus-named-workspace 2
+lalt + 3                : komorebic focus-named-workspace 3
+lalt + 4                : komorebic focus-named-workspace 4
+lalt + 5                : komorebic focus-named-workspace 5
+lalt + 6                : komorebic focus-named-workspace 6
+lalt + 7                : komorebic focus-named-workspace 7
+lalt + 8                : komorebic focus-named-workspace 8
+lalt + 9                : komorebic focus-named-workspace 9
 
 # Move the focused window and follow it (send-to-named-workspace would stay)
-alt + shift + 1         : komorebic move-to-named-workspace 1
-alt + shift + 2         : komorebic move-to-named-workspace 2
-alt + shift + 3         : komorebic move-to-named-workspace 3
-alt + shift + 4         : komorebic move-to-named-workspace 4
-alt + shift + 5         : komorebic move-to-named-workspace 5
-alt + shift + 6         : komorebic move-to-named-workspace 6
-alt + shift + 7         : komorebic move-to-named-workspace 7
-alt + shift + 8         : komorebic move-to-named-workspace 8
-alt + shift + 9         : komorebic move-to-named-workspace 9
+lalt + shift + 1        : komorebic move-to-named-workspace 1
+lalt + shift + 2        : komorebic move-to-named-workspace 2
+lalt + shift + 3        : komorebic move-to-named-workspace 3
+lalt + shift + 4        : komorebic move-to-named-workspace 4
+lalt + shift + 5        : komorebic move-to-named-workspace 5
+lalt + shift + 6        : komorebic move-to-named-workspace 6
+lalt + shift + 7        : komorebic move-to-named-workspace 7
+lalt + shift + 8        : komorebic move-to-named-workspace 8
+lalt + shift + 9        : komorebic move-to-named-workspace 9
