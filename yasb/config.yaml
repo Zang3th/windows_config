@@ -32,7 +32,7 @@ bars:
       - "gpu"
       - "memory"
       center:
-      - "active_window"
+      - "clock"
       right:
       - "media"
       - "weather"
@@ -101,6 +101,24 @@ widgets:
           on_left: "toggle_label"
           on_middle: "do_nothing"
           on_right: "do_nothing"
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+      # strftime inside spans needs yasb/patches/apply-yasb-patches.ps1, one {...} per span
+      label: '<span class="date">{%#d. %b}</span><span class="time">{%H:%M:%S}</span>'
+      locale: "de_DE"
+      tooltip: false
+      calendar:
+        alignment: "center"
+        show_week_numbers: true
+        show_holidays: true
+        country_code: "DE"
+        holiday_color: "#fb4934"
+      callbacks:
+        on_left: "toggle_calendar"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
+  # not placed on any bar
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
